@@ -44,14 +44,12 @@ jobs:
           wash par create --arch aarch64-macos  --binary dist/kv-go_darwin_arm64/kv-go    --capid wasmcloud:keyvalue --name "InMem KeyValue (Go)" --vendor jordan-rash --version ${{ github.ref_name }} --revision 1 --destination dist/2_kv.par.gz
           wash par create --arch x86_64-linux   --binary dist/kv-go_linux_amd64_v1/kv-go  --capid wasmcloud:keyvalue --name "InMem KeyValue (Go)" --vendor jordan-rash --version ${{ github.ref_name }} --revision 1 --destination dist/3_kv.par.gz
           wash par create --arch aarch64-linux  --binary dist/kv-go_linux_arm64/kv-go     --capid wasmcloud:keyvalue --name "InMem KeyValue (Go)" --vendor jordan-rash --version ${{ github.ref_name }} --revision 1 --destination dist/4_kv.par.gz
-          wash par create --arch armv7-linux    --binary dist/kv-go_linux_arm_7/kv-go     --capid wasmcloud:keyvalue --name "InMem KeyValue (Go)" --vendor jordan-rash --version ${{ github.ref_name }} --revision 1 --destination dist/5_kv.par.gz
 
       - name: Insert Provides into archive
         run: |
           wash par insert --arch aarch64-macos  --binary  dist/kv-go_darwin_arm64/kv-go   dist/1_kv.par.gz 
           wash par insert --arch x86_64-linux   --binary  dist/kv-go_linux_amd64_v1/kv-go dist/1_kv.par.gz 
           wash par insert --arch aarch64-linux  --binary  dist/kv-go_linux_arm64/kv-go    dist/1_kv.par.gz 
-          wash par insert --arch armv7-linux    --binary  dist/kv-go_linux_arm_7/kv-go    dist/1_kv.par.gz 
 
       - name: Upload provider archive to GH Actions
         env:
