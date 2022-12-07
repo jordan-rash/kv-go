@@ -1,0 +1,6 @@
+[submodule "interfaces"]
+	path = interfaces
+	url = https://github.com/jordan-rash/interfaces
+[submodule "provider-sdk-go"]
+	path = provider-sdk-go
+	url = https://github.com/jordan-rash/provider-sdk-go
