@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	provider "github.com/wasmcloud/provider-sdk-go"
+	provider "github.com/wasmCloud/provider-sdk-go"
 )
 
 var p *provider.WasmcloudProvider
