@@ -49,4 +49,4 @@ jobs:
           WASH_REG_USER: jordan-rash
           WASH_REG_PASSWORD: ${{ secrets.WASH_PAT }}
         run: |
-          wash reg push ghcr.io/jordan-rash/kv-provider:${{ github.ref_name }} dist/kv.par.gz -a org.opencontainers.image.source=https://github.com/jordan-rash/kv-go
+          wash reg push ghcr.io/jordan-rash/kv-provider:${{ github.ref_name }} dist/kv.par.gz -a org.opencontainers.image.source=https://github.com/jordan-rash/kv-go -a org.opencontainers.image.description="InMem KV Provider - Go"
