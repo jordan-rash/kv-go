@@ -19,7 +19,7 @@ require (
 	github.com/nats-io/nkeys v0.3.0 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
-	github.com/wasmCloud/provider-sdk-go v0.0.0-20221208172953-ea5027860e8a // indirect
+	github.com/wasmCloud/provider-sdk-go v0.0.0-20221208235810-5bc11be6c3ea // indirect
 	github.com/wasmcloud/actor-tinygo v0.1.3 // indirect
 	github.com/wasmcloud/interfaces/core/tinygo v0.0.0-20221207211951-730867f0b1e5 // indirect
 	github.com/wasmcloud/tinygo-cbor v0.1.0 // indirect
