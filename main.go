@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"sync"
 
 	provider "github.com/wasmCloud/provider-sdk-go"
@@ -11,7 +12,6 @@ type data map[string]interface{}
 
 var (
 	p        *provider.WasmcloudProvider
-	aID      string
 	database map[string]data
 	lock     sync.RWMutex
 
@@ -28,6 +28,7 @@ func main() {
 		"wasmcloud:keyvalue",
 		provider.WithProviderActionFunc(handleKVAction),
 		provider.WithNewLinkFunc(newLinkReceived),
+		provider.WithHealthCheckMsg(healthCheckMsg),
 	)
 	if err != nil {
 		panic(err)
@@ -37,6 +38,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func healthCheckMsg() string {
+	return fmt.Sprintf("Num databases initialized: %d", len(database))
 }
 
 func newLinkReceived(a provider.ActorConfig) error {
@@ -54,7 +59,7 @@ func handleKVAction(a provider.ProviderAction) (*provider.ProviderResponse, erro
 	case "KeyValue.Increment":
 		msg := decodeIncrementRequest(a.Msg)
 
-		// Get the actors database
+		// Get the actor specific database
 		db := database[a.FromActor]
 
 		if db[msg.Key] == nil {
